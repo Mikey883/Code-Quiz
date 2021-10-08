@@ -8,7 +8,7 @@
 }
 
 .statements {
-    text-align: center;
+    text-align: left;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -44,6 +44,10 @@
     width: 1000px;
     font-style: italic;
     letter-spacing: 2px;
+}
+
+.start-page{
+    text-align: center;
 }
 
 .start-page h1 {
@@ -96,6 +100,43 @@
 
 .questions li:hover {
     background-color: rgb(185, 85, 224);
+}
+
+.finish-page {
+    text-align: left;
+    width: 500px;
+}
+
+.finish-page h2 {
+    font-size: 60px;
+    margin: 5px 0px 20px 0px;
+}
+
+.finish-page h3 {
+    font-size: 35px;
+    margin: 5px 0px 20px 0px;
+}
+
+.finish-page form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.finish-page form input {
+    width: 200px;
+    height: 40px;
+    margin: 5px 0px 20px 10px;
+}
+
+.submit-button {
+    margin-top: 15px;
+    background-color: rgb(60, 4, 105);
+    color: white;
+    width: 150px;
+    height: 40px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: none;
 }
 
 .hide {

@@ -1,107 +1,123 @@
 var timer;
-var timeLeft=0;
+var timeLeft = 0;
 function startTimer() {
-    timeLeft=50;
+    timeLeft = 60;
     timer=setInterval(function() {
         timeLeft--;
-        if(timeLeft===0) {
+        $(".timer").text("Time:" + " " + timeLeft);
+        if(timeLeft <= 0) {
             finish();
         }
     },1000)
-    $(".timer").append(timeLeft)
 }
-
-startTimer()
-
+ 
 function subtractTime() {
-    timeLeft-=10;
-    if(timeLeft===0) {
+    timeLeft -= 5;
+    if(timeLeft <= 0) {
         finish();
     }
+}
+
+var totalPoints = points
+var points = 0;
+function addPoints() {
+    points + 5;
+    $(".points").text(points);
+}
+
+function subtractPoints() {
+    points - 5;
+    $(".points").text(points);
+}
+
+$(".wrong-answer").click(function () {
+    wrongAnswer()
+});
+
+function finish() {
+    timeLeft = 0;
+    $(".timer").text("Time:" + " " + timeLeft);
+    $(".start-page").hide();
+    $("#question1").hide();
+    $("#question2").hide();
+    $("#question3").hide();
+    $("#question4").hide();
+    $("#question5").hide();
+    $(".result").hide();
+    $(".finish-page").show();
+    
 }
 
 $(".start-button").click(startQuiz)
 
 function startQuiz() {
-    console.log("Started");
     $(".start-page").hide();
     $("#question1").show();
-    $(".wrong-answer").click(function () {
-        wrongAnswer()
-    });
+    startTimer() 
 };
 
 $("#correct1").click(function() {
-    setQuestion1();
-    rightAnswer();
+    setQuestion1(), rightAnswer();
 });
 
 function setQuestion1() {
     $("#question1").hide();
     $("#question2").show();
-    $(".wrong-answer").click(function () {
-        wrongAnswer()
-    });
-    
 };
 
 $("#correct2").click(function() {
-    setQuestion2();
-    rightAnswer();
+    setQuestion2(), rightAnswer();
 });
 
 function setQuestion2() {
     $("#question2").hide();
     $("#question3").show();
-    $(".wrong-answer").click(function () {
-        wrongAnswer()
-    });
 };
 
 $("#correct3").click(function() {
-    setQuestion3();
-    rightAnswer();
+    setQuestion3(), rightAnswer();
 });
 
 function setQuestion3() {
     $("#question3").hide();
     $("#question4").show();
-    $(".wrong-answer").click(function () {
-        wrongAnswer()
-    });
 };
 
 $("#correct4").click(function() {
-    setQuestion4();
-    rightAnswer();
+    setQuestion4(), rightAnswer();
 });
 
 function setQuestion4() {
     $("#question4").hide();
     $("#question5").show();
-    $(".wrong-answer").click(function () {
-        wrongAnswer()
-    });
 };
 
 $("#correct5").click(function() {
-    setQuestion5();
-    rightAnswer();
+    setQuestion5(), rightAnswer();
 });
 
 function setQuestion5() {
-    $("#question5").hide();
-    $(".wrong-answer").click(function () {
-        wrongAnswer()
-    });
+    finish()
 };
-
 
 function rightAnswer() {
-    $(".result").hide();
+    $(".result").hide(), addPoints();
 };
 
+var timerWrong;
+var timeLeftWrong = 0;
+function showWrongText() {
+    timeLeftWrong = 2;
+    timer=setInterval(function() {
+        timeLeftWrong--;
+        $(".result").show()
+        if(timeLeftWrong <= 0) {
+            $(".result").hide()
+        }
+    },1000)
+}
+
 function wrongAnswer() {
-    $(".result").show();
+    showWrongText(), subtractTime(), subtractPoints();
 };
 
