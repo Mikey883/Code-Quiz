@@ -33,6 +33,10 @@
     flex-wrap: wrap;
 }
 
+.high-scores:hover {
+    color: rgb(185, 85, 224);
+}
+
 .result {
     position: absolute;
     top: 90%;
@@ -137,6 +141,30 @@
     font-size: 30px;
     border-radius: 10px;
     border: none;
+}
+
+.submit-button:hover {
+    background-color: rgb(185, 85, 224);
+}
+
+#high-scores h2 {
+    font-size: 60px;
+}
+
+#high-scores button {
+    background-color: rgb(60, 4, 105);
+    color: white;
+    width: 170px;
+    height: 60px;
+    font-size: 35px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    border: none;
+}
+
+#high-scores .clear {
+    margin-left: 5px;
+    width: 310px;
 }
 
 .hide {

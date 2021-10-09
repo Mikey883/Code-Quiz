@@ -21,17 +21,15 @@ function subtractTime() {
 var totalPoints = points
 var points = 0;
 function addPoints() {
-    points + 5;
-    $(".points").text(points);
+    points += 10;
 }
 
 function subtractPoints() {
-    points - 5;
-    $(".points").text(points);
+    points -= 5;
 }
 
 $(".wrong-answer").click(function () {
-    wrongAnswer()
+    wrongAnswer();
 });
 
 function finish() {
@@ -44,8 +42,8 @@ function finish() {
     $("#question4").hide();
     $("#question5").hide();
     $(".result").hide();
+    $(".points").text("Your final score is" + " " + points);
     $(".finish-page").show();
-    
 }
 
 $(".start-button").click(startQuiz)
@@ -107,7 +105,7 @@ function rightAnswer() {
 var timerWrong;
 var timeLeftWrong = 0;
 function showWrongText() {
-    timeLeftWrong = 2;
+    timeLeftWrong = 3;
     timer=setInterval(function() {
         timeLeftWrong--;
         $(".result").show()
@@ -121,3 +119,24 @@ function wrongAnswer() {
     showWrongText(), subtractTime(), subtractPoints();
 };
 
+$(".high-scores").click(function () {
+    showHighScores();
+});
+
+function showHighScores() {
+    $(".timer").hide();
+    $(".high-scores").hide();
+    $(".start-page").hide();
+    $("#high-scores").show();
+}
+
+$(".go-back").click(function () {
+    goBackToStart();
+});
+
+function goBackToStart() {
+    $("#high-scores").hide();
+    $(".timer").show();
+    $(".high-scores").show();
+    $(".start-page").show();
+}
