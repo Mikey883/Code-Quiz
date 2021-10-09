@@ -33,8 +33,7 @@ $(".wrong-answer").click(function () {
 });
 
 function finish() {
-    timeLeft = 0;
-    $(".timer").text("Time:" + " " + timeLeft);
+    clearInterval(timer);
     $(".start-page").hide();
     $("#question1").hide();
     $("#question2").hide();
@@ -124,9 +123,19 @@ $(".high-scores").click(function () {
 });
 
 function showHighScores() {
+    timeLeft = 60
+    clearInterval(timer);
+    $(".timer").text("Time: 0");
     $(".timer").hide();
     $(".high-scores").hide();
     $(".start-page").hide();
+    $(".result").hide();
+    $(".finish-page").hide();
+    $("#question1").hide();
+    $("#question2").hide();
+    $("#question3").hide();
+    $("#question4").hide();
+    $("#question5").hide();
     $("#high-scores").show();
 }
 
@@ -135,7 +144,16 @@ $(".go-back").click(function () {
 });
 
 function goBackToStart() {
+    timeLeft = 60
+    clearInterval(timer);
+    $(".timer").text("Time: 0");
     $("#high-scores").hide();
+    $(".finish-page").hide();
+    $("#question1").hide();
+    $("#question2").hide();
+    $("#question3").hide();
+    $("#question4").hide();
+    $("#question5").hide();
     $(".timer").show();
     $(".high-scores").show();
     $(".start-page").show();
